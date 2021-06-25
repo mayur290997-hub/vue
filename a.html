@@ -1,0 +1,176 @@
+<!doctype html>
+<html class="no-js" lang="en">
+{% load static %}
+
+{% load category_based_nominee_filter %}
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.0.5/rangeslider.min.css" />
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta name="description" content="project name">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="theme-color" content="#000" />
+
+    <meta property="og:title" content="project name" />
+    <meta property="og:description" content="project description" />
+    <meta property="og:url" content="https://domainname.in/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{% static 'img/og-image.jpg' %}" />
+    <meta property="og:image:secure_url" content="{% static 'img/og-image.jpg' %}" />
+
+    <title>Zeetamil-Rockstar</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}" />
+
+    <link rel="preload" href="{% static 'nomination_voting_history/fonts/fa/fa-solid-900.woff2' %}" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="{% static 'nomination_voting_history/fonts/fa/fa-brands-400.woff2' %}" as="font" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="{% static 'nomination_voting_history/css/app.min.css' %}" />
+</head>
+
+<body>
+
+    <div class="loader_overlay">
+        <div class="loader_spinner"></div>
+    </div>
+
+    <main id="index_page" class="smooth_scroll_pages">
+        <!--  insert body content  -->
+
+        <section id="container">
+            <!-- bg-section and logo -->
+            <div id="bg1">
+                <img src="{% static 'img/home/logo.png' %}" alt="rock-star" class="logo">
+                <!-- ends with logo  -->
+
+                <div class="vote-remaining">
+                    You Have <p class="number-count">100</p> votes left
+                </div>
+                <!-- end with vote icon and counting number -->
+                <form action="#" method="POST">
+                    {% for category in categories %}
+                    <div class="contestants">
+                        {% for nomination in nominations_list|in_category:category  %}
+                        <div class="contestant_item ">
+                            <div class="contestant_inner">
+                                <div class="contestant_image">
+                                    <img src="{{ nomination.artist_image.url }}" alt="Bamba" class="img-responsive c_img">
+                                    <img src="{% static 'img/home/AlreadyVoted.png' %}" alt="Bamba" class="img-responsive av_img">
+
+                                    <h5 class="contestant_name">{{ nomination.name }}</h5>
+                                </div>
+
+                                <div class="rating_area">
+                                    <div class="rated_output">
+                                        <svg id="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 847.34 83.84">
+
+
+                                            <path class="cls-1 mn4" d="M91.22,40.2H88.66a.53.53,0,0,0-.53.53l0,61.18a5.55,5.55,0,0,0-.91-.52c-3.92-1.83-9.44-1.37-14.41,1.22-7.57,3.94-11.32,11.19-8.55,16.52,1.4,2.69,4.19,4.38,7.86,4.75a13.18,13.18,0,0,0,1.55.08,19.84,19.84,0,0,0,9-2.34c5.85-3,8.67-8.21,8.52-13l0,0,.53-67.85A.53.53,0,0,0,91.22,40.2ZM80.76,118a15,15,0,0,1-8.24,1.81c-1.29-.13-3.62-.64-4.6-2.54-1.65-3.16,1.46-8.16,6.78-10.93a15.77,15.77,0,0,1,7.11-1.87,8.56,8.56,0,0,1,3.65.73h0A5.13,5.13,0,0,1,88,108.61C88.13,111.77,85.13,115.67,80.76,118Z" transform="translate(-63.33 -40.12)" />
+
+                                            <path class="cls-1 mn3" d="M136.34,55.36h0v67.9a.56.56,0,0,0,.55.56h2.43a.55.55,0,0,0,.55-.56V60.87c3.59,1.79,9.07,1.47,14.24-1.22,7.18-3.73,11-10.59,8.55-15.31s-10.27-5.53-17.44-1.79C139.23,45.66,136.32,51,136.34,55.36Z" transform="translate(-63.33 -40.12)" />
+
+                                            <path class="cls-1 mn5" d="M208.52,123.89h2.56a.53.53,0,0,0,.53-.53l0-61.18a5.89,5.89,0,0,0,.91.52c3.92,1.83,9.44,1.36,14.41-1.23,7.56-3.93,11.32-11.18,8.54-16.51-1.39-2.69-4.18-4.38-7.85-4.76-.51-.05-1-.08-1.55-.08a19.84,19.84,0,0,0-9,2.34c-5.85,3-8.66,8.22-8.51,13l0,0L208,123.36A.52.52,0,0,0,208.52,123.89ZM219,46.14a15,15,0,0,1,8.23-1.81c1.3.13,3.62.64,4.61,2.54,1.64,3.16-1.47,8.16-6.78,10.93a16,16,0,0,1-7.12,1.86,8.74,8.74,0,0,1-3.65-.72l0,0a5.12,5.12,0,0,1-2.46-3.44C211.61,52.32,214.61,48.42,219,46.14Z" transform="translate(-63.33 -40.12)" />
+
+                                            <path id="left-leg" class="cls-1 mn1" d="M317.23,108.66h0V40.75a.55.55,0,0,0-.55-.55h-2.43a.55.55,0,0,0-.55.55v62.39c-3.59-1.79-9.07-1.46-14.24,1.22-7.17,3.74-11,10.59-8.54,15.31s10.26,5.53,17.44,1.8C314.35,118.35,317.26,113.05,317.23,108.66Z" transform="translate(-63.33 -40.12)" />
+
+                                            <path id="music1" class="cls-71 mn2" d="M375.68,55.36h0v67.9a.56.56,0,0,0,.55.56h2.43a.55.55,0,0,0,.55-.56V60.87c3.59,1.79,9.07,1.47,14.24-1.22,7.18-3.73,11-10.59,8.55-15.31s-10.27-5.53-17.44-1.79C378.57,45.66,375.66,51,375.68,55.36Z" transform="translate(-63.33 -40.12)" />
+
+                                            <path class="cls-1 mn6" d="M490.63,58.51a11.82,11.82,0,0,1-5.71-7,20,20,0,0,1-.89-3.74c-.09-.57-.12-4.43-.16-5a5.64,5.64,0,0,0-.15-1.48c-.31-.85-2.11-1.35-3-1.1-.65.19-.65,1-.61,1.57,0,.83.06,4.94.06,5.78,0,1.68,0,3.37,0,5.06q0,3.32,0,6.63l0,7.64,0,8.09q0,4,0,8l0,7.35c0,2.05,0,4.1,0,6.15l0,4.4V103s0,.1,0,.1c-3.59-1.78-9.07-1.46-14.24,1.23-7.18,3.73-11,10.58-8.55,15.3s8.66,5.76,15.84,2c6-3.12,9.92-8.42,9.9-12.81V65.75c8.76-.27,16.88,10.33,16.88,10.33,8.17,14.4-5.09,28.74-5.09,28.74-.88,2.72.92,2.15.92,2.15,4.69-2.83,10.14-11.75,10.14-11.75C518.37,74.27,490.63,58.51,490.63,58.51Z" transform="translate(-63.33 -40.12)" />
+
+                                            <path class="cls-1 mn8" d="M606.22,79.31c-.17-.51-.36-1-.56-1.52a15.08,15.08,0,0,0,.8-8.47c-2.38-7.44-9.27-13.61-15.9-17.73-5.46-3.38-7.92-4.26-9.53-9.41a5.11,5.11,0,0,0-.25-1.11.76.76,0,0,0-.12-.19v0h0a2.92,2.92,0,0,0-2.71-.62c-.65.18-.61.95-.61,1.57v.41L577.2,103c-3.58-1.78-9.07-1.29-14.23,1.4-7.18,3.73-11,10.58-8.55,15.31s10.26,5.52,17.44,1.79c6-3.11,8.32-8.26,8.29-12.65V63a32,32,0,0,0,4.51,2.41c9.48,4.34,20.55,16,16.69,26.44a58.76,58.76,0,0,1-2.79,5.33c-1.58,3,2.5,2.17,4.13-.23C606.33,91.54,608.17,85.41,606.22,79.31ZM590.31,61.58a46,46,0,0,1-9.19-7.27c.85.42,1.83.42,3.78,1.06,9.92,3.25,16.54,7.4,18.05,17.32,0,0,0,.1,0,.26A44.2,44.2,0,0,0,590.31,61.58Z" transform="translate(-63.33 -40.12)" />
+
+                                            <path class="cls-1 mn9" d="M700.14,89.29c-.17-.51-.36-1-.57-1.52a14,14,0,0,0,.79-8c-.2-.62-.44-1.22-.7-1.82a14,14,0,0,0,.7-7.71c-2.2-6.87-8.56-12.57-14.69-16.37-5-3.13-7.31-3.94-8.8-8.7a4.32,4.32,0,0,0-.23-1,.67.67,0,0,0-.11-.18v0h0a2.7,2.7,0,0,0-2.5-.57c-.6.17-.57.88-.57,1.45,0,.12,0,.25,0,.38l-.12,56.16c-3.32-1.65-8.38-1.19-13.15,1.29-6.63,3.44-10.17,9.77-7.9,14.14s9.48,5.1,16.11,1.65c5.53-2.87,7.69-7.62,7.66-11.68V74.18a30.61,30.61,0,0,0,4.16,2.22c8.76,4,19,14.74,15.42,24.42a54.84,54.84,0,0,1-2.58,4.92c-1.45,2.75,2.31,2,3.82-.21C700.24,100.58,701.94,94.92,700.14,89.29ZM680.45,57.41c9.15,3,15.28,6.83,16.66,16a2,2,0,0,1,0,.22,40.94,40.94,0,0,0-11.45-10.18c-4.12-2.56-6.55-3.8-8.13-6.8C678.21,56.85,679.07,57,680.45,57.41Zm5,15.5a40.6,40.6,0,0,1-9-7.27c.92.73,1.79.57,4,1.29,9.15,3,15.28,6.83,16.66,16,0,0,0,.2,0,.5A40.58,40.58,0,0,0,685.44,72.91Z" transform="translate(-63.33 -40.12)" />
+
+                                            <path class="cls-1 mn7" d="M803,54c-3.73-7.94-10.42-13.13-18.87-8.75a31.16,31.16,0,0,0-5.83,3.92A8.47,8.47,0,0,1,773.89,51a7.63,7.63,0,0,1-.82,0,3,3,0,0,1-1.79-1.64,7.07,7.07,0,0,1-.33-1.87c-.08-.54-.11-1.09-.14-1.63a5.49,5.49,0,0,0-.14-1.41c-.29-.82-1.95-1.29-2.72-1.06-.6.18-.61,1-.57,1.5v.06l-.19,55.89c-3.31-1.7-8.37-1.39-13.15,1.17-6.62,3.56-10.16,10.1-7.89,14.6s8,5.49,14.63,1.93c5.53-3,9.16-8,9.14-12.22V65.12l-.1-.76c4.32,3.28,9.6.65,13.45-2.09,3.05-2.19,8.34-9.16,12.32-8.39,3.74.72,5.53,6.32,6.3,9.59A21.52,21.52,0,0,1,801,76.12a23.71,23.71,0,0,1-1.19,2.78c-.57,1-1.32,2-1.16,3.3.07.6.3,1,.85.68a5.57,5.57,0,0,0,1.11-1.06,25.24,25.24,0,0,0,3.6-6.23l.09-.19a6.86,6.86,0,0,0,.44-1A29,29,0,0,0,803,54Z" transform="translate(-63.33 -40.12)" />
+
+                                            <path class="cls-1 mn10" d="M910.53,55.89a14.42,14.42,0,0,0-3.36-8.14c-3.35-3.76-8.11-4.8-12.58-4.32-6.46.69-13.62,7.23-19.28.75a2.62,2.62,0,0,0-2.53-.63c-.6.17-.57.88-.57,1.45v.5s0,0,0,.07v56c-3.31-1.65-8.38-1.35-13.15,1.13-6.63,3.44-10.16,9.78-7.89,14.14s9.48,5.1,16.1,1.65c5.54-2.87,8.22-7.77,8.2-11.83V57.32c5.06.93,10.61-1.34,14.39-2.92,3-1.25,6.16-3.58,9.38-3.42,4.74.25,4.22,5.5,5.54,9.88a5.15,5.15,0,0,0,2.39,3.29C911,65.87,910.83,58.85,910.53,55.89Z" transform="translate(-63.33 -40.12)" />
+                                        </svg>
+
+                                    </div>
+                                    <div class="rating_input">
+                                        <div class="range-field">
+                                            <input class="slider" type="range" min="0" max="10" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                    <button type="submit" class="text-center submit-btn" type="button">
+                        SUBMIT
+                    </button>
+                </form>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!--  end body content -->
+    <script src="{% static 'nomination_voting_history/js/app.min.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            var getRemainingVotes = $('.vote-remaining .number-count').text();
+
+            $('.contestant_item .slider').each(function(ind, elem) {
+                var getParent = $(elem).parents('.contestant_item');
+                elem.oninput = function() {
+                    //adding class if value is greter than zero
+                    if (this.value > 0) {
+                        $(elem).parents('.contestant_item').addClass('isVoted');
+                    } else {
+                        $(elem).parents('.contestant_item').removeClass('isVoted');
+                    }
+
+
+                    //updating the notes color
+                    var getNotes = getParent.find('.rated_output svg path');
+                    getParent.find('.rated_output svg path').css({
+                        fill: '#231f20'
+                    });
+                    for (var i = 0; i < this.value; i++) {
+                        $(getNotes[i]).css({
+                            fill: '#fff'
+                        });
+                    }
+
+                    //updating remaining votes
+                    var noOfVotesVoted = 0;
+                    $('.isVoted').each(function(ind, elem) {
+                        var eachContestantVote = $(elem).find('.slider').val();
+                        noOfVotesVoted = parseInt(eachContestantVote) + noOfVotesVoted;
+                    })
+
+                    $('.vote-remaining .number-count').text(parseInt(getRemainingVotes) - noOfVotesVoted);
+
+
+                }
+            })
+
+            $('.submit-btn').on('click', function() {
+                //                $(this).prop('disabled', true);
+                var votedContestantIndex = [];
+                2
+                var votedContestantIndexVote = [];
+                $('.isVoted').each(function(ind, elem) {
+                    votedContestantIndex.push($(elem).index());
+                    votedContestantIndexVote.push($(elem).find('.slider').val());
+                })
+                console.log(votedContestantIndex, votedContestantIndexVote)
+            })
+
+        })
+
+    </script>
+</body>
+
+</html>
